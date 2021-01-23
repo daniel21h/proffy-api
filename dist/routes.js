@@ -9,6 +9,14 @@ const ConnectionsController_1 = __importDefault(require("./controllers/Connectio
 const routes = express_1.default.Router();
 const classesControllers = new ClassesController_1.default();
 const connectionsController = new ConnectionsController_1.default();
+routes.get('/', (request, response) => {
+    try {
+        return response.json({ message: '🚀 Server running on Heroku.' });
+    }
+    catch (error) {
+        return response.json({ message: 'Problem on server.', error });
+    }
+});
 routes.get('/classes', classesControllers.index);
 routes.post('/classes', classesControllers.create);
 routes.get('/connections', connectionsController.index);

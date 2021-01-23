@@ -6,6 +6,14 @@ const routes = express.Router()
 const classesControllers = new ClassesController()
 const connectionsController = new ConnectionsController()
 
+routes.get('/', (request, response) => {
+  try {
+    return response.json({ message: '🚀 Server running on Heroku.' })
+  } catch (error) {
+    return response.json({ message: 'Problem on server.', error })
+  }
+})
+
 routes.get('/classes', classesControllers.index)
 routes.post('/classes', classesControllers.create)
 
