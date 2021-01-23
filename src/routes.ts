@@ -14,7 +14,8 @@ routes.get('/', (request, response) => {
   }
 })
 
-routes.get('/classes', classesControllers.index)
+routes.get('/classes', classesControllers.show)
+routes.get('/classes/all', classesControllers.index)
 routes.post('/classes', classesControllers.create)
 
 routes.get('/connections', connectionsController.index)

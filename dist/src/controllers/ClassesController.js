@@ -7,6 +7,10 @@ const connection_1 = __importDefault(require("../database/connection"));
 const convertHourToMinutes_1 = __importDefault(require("../utils/convertHourToMinutes"));
 class ClassesController {
     async index(request, response) {
+        const classes = await connection_1.default('classes');
+        return response.json(classes);
+    }
+    async show(request, response) {
         const filters = request.query;
         if (!filters.week_day || !filters.subject || !filters.time) {
             return response.status(400).json({

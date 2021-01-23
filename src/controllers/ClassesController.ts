@@ -11,6 +11,12 @@ interface ScheduleItem {
 
 export default class ClassesController {
   async index(request: Request, response: Response) {
+    const classes = await db('classes')
+
+    return response.json(classes)
+  }
+
+  async show(request: Request, response: Response) {
     const filters = request.query
 
     if (!filters.week_day || !filters.subject || !filters.time) {

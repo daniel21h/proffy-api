@@ -17,7 +17,8 @@ routes.get('/', (request, response) => {
         return response.json({ message: 'Problem on server.', error });
     }
 });
-routes.get('/classes', classesControllers.index);
+routes.get('/classes', classesControllers.show);
+routes.get('/classes/all', classesControllers.index);
 routes.post('/classes', classesControllers.create);
 routes.get('/connections', connectionsController.index);
 routes.post('/connections', connectionsController.create);
